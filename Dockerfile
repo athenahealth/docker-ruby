@@ -42,7 +42,6 @@ RUN yum -y --color=never clean all \
          gcc-c++ \
          readline-devel \
          libyaml-devel \
-         libffi-devel \
          openssl-devel \
          bzip2 \
          autoconf \
