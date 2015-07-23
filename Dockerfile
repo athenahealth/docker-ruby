@@ -36,7 +36,8 @@ RUN yum -y --color=never clean all \
     && rbenv global $RUBY_VERSION \
     && rbenv rehash \
     && echo "gem: --no-document --no-ri --no-rdoc\n" >> ~/.gemrc \
-    && echo 'eval "$(rbenv init -)"' >> ~/.bash_profile \
+    && echo "export RBENV_ROOT=$RBENV_ROOT" >> /etc/profile.d/rbenv.sh \
+    && echo "eval "$(rbenv init -)" >> /etc/profile.d/rbenv.sh \
     && yum -y --color=never autoremove \
          gcc \
          patch \
