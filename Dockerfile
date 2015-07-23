@@ -3,7 +3,8 @@ MAINTAINER Stas Alekseev <stas.alekseev@gmail.com>
 
 ENV RUBY_VERSION 2.1.5
 ENV RBENV_ROOT /usr/local/rbenv
-ENV PATH $RBENV_ROOT/bin:$PATH
+ENV PATH $RBENV_ROOT/shims:$RBENV_ROOT/bin:$PATH
+ENV RBENV_VERSION $RUBY_VERSION
 
 WORKDIR /root
     
@@ -36,8 +37,6 @@ RUN yum -y --color=never clean all \
     && rbenv global $RUBY_VERSION \
     && rbenv rehash \
     && echo "gem: --no-document --no-ri --no-rdoc\n" >> ~/.gemrc \
-    && echo "export RBENV_ROOT=$RBENV_ROOT" >> /etc/profile.d/rbenv.sh \
-    && echo "eval '$(rbenv init -)'" >> /etc/profile.d/rbenv.sh \
     && yum -y --color=never autoremove \
          gcc \
          patch \
@@ -54,3 +53,5 @@ RUN yum -y --color=never clean all \
          zlib-devel \
          git \
     && yum -y --color=never clean all
+
+CMD irb
