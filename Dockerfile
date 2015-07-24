@@ -12,6 +12,7 @@ RUN yum --enablerepo ol7_optional_latest -y --color=never install \
          gcc \
          make \
          patch \
+         file \
          gcc-c++ \
          readline-devel \
          libyaml-devel \
@@ -39,6 +40,7 @@ RUN yum --enablerepo ol7_optional_latest -y --color=never install \
     && yum -y --color=never autoremove \
          gcc \
          patch \
+         file \
          gcc-c++ \
          readline-devel \
          libyaml-devel \
