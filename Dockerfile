@@ -1,4 +1,4 @@
-FROM centos:7
+FROM oraclelinux:7.1
 MAINTAINER Stas Alekseev <stas.alekseev@gmail.com>
 
 ENV RUBY_VERSION 2.1.5
@@ -54,4 +54,4 @@ RUN yum -y --color=never clean all \
          git \
     && yum -y --color=never clean all
 
-CMD irb
+CMD ["irb"]
