@@ -33,7 +33,7 @@ RUN yum --enablerepo ol7_optional_latest -y --color=never install \
     && git clone https://github.com/garnieretienne/rvm-download.git $RBENV_ROOT/plugins/rvm-download \
     && git clone https://github.com/sstephenson/rbenv-gem-rehash.git $RBENV_ROOT/plugins/rbenv-gem-rehash \
     && RUBY_CONFIGURE_OPTS=--disable-install-doc rbenv install $RUBY_VERSION \
-    && find $RBENV_ROOT -type f | xargs file | grep 'not stripped' | awk '{ print $1 }' | cut -d: -f1 | xargs strip -g -S -d --strip-debug \
+    && find $RBENV_ROOT/versions -type f | xargs file | grep 'not stripped' | awk '{ print $1 }' | cut -d: -f1 | xargs strip -g -S -d --strip-debug \
     && rbenv global $RUBY_VERSION \
     && rbenv rehash \
     && echo "gem: --no-document --no-ri --no-rdoc\n" >> ~/.gemrc \
