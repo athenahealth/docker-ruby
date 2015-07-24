@@ -1,21 +1,21 @@
 FROM oraclelinux:7.1
 MAINTAINER Stas Alekseev <stas.alekseev@gmail.com>
 
-ENV RUBY_VERSION 2.1.5
+ENV RUBY_VERSION 2.1.6
 ENV RBENV_ROOT /usr/local/rbenv
 ENV PATH $RBENV_ROOT/shims:$RBENV_ROOT/bin:$PATH
 ENV RBENV_VERSION $RUBY_VERSION
 
 WORKDIR /root
 
-RUN yum -y --color=never clean all \
-    && yum -y --color=never install \
+RUN yum --enablerepo ol7_optional_latest -y --color=never install \
          gcc \
          make \
          patch \
          gcc-c++ \
          readline \
          readline-devel \
+         libyaml-devel \
          libffi \
          libffi-devel \
          openssl-devel \
@@ -40,6 +40,7 @@ RUN yum -y --color=never clean all \
          patch \
          gcc-c++ \
          readline-devel \
+         libyaml-devel \
          openssl-devel \
          bzip2 \
          autoconf \
