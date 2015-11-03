@@ -1,7 +1,7 @@
 FROM oraclelinux:7.1
 MAINTAINER Stas Alekseev <stas.alekseev@gmail.com>
 
-ENV RUBY_VERSION 2.1.6
+ENV RUBY_VERSION 2.2.3
 ENV RBENV_ROOT /usr/local/rbenv
 ENV PATH $RBENV_ROOT/shims:$RBENV_ROOT/bin:$PATH
 ENV RBENV_VERSION $RUBY_VERSION
